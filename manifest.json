@@ -1,0 +1,29 @@
+{
+  "name": "Timer",
+  "description": "Adds a handy timer to Chrome!",
+  "version": "1.0",
+  "manifest_version": 3,
+  "background": {
+    "service_worker": "background.js"
+  },
+  "permissions": ["storage"],
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "images/timer-16.png",
+      "32": "images/timer-32.png",
+      "48": "images/timer-48.png",
+      "128": "images/timer-128.png"
+    }
+  },
+  "icons": {
+    "16": "images/timer-16.png",
+    "32": "images/timer-32.png",
+    "48": "images/timer-48.png",
+    "128": "images/timer-128.png"
+  }
+}
+
+
+
+
