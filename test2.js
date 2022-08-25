@@ -12,7 +12,7 @@ function setPageColor() {
       node.style.color = '#000';
     });
     links.forEach(el => {
-      el.style.color = '#0000FF';
+      el.style.color = '#000';
     })
 
     /*

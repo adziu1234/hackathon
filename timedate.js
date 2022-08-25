@@ -1,8 +1,31 @@
-
-let loc = fetch('https://dataservice.accuweather.com/locations/v1/postalcodes/search?apikey=AbSo1RM9uq0KBopD4eh2LtdU6COU4Fmu&q=60453')
-  .then((response) => response.json());
-
+/*async function geolocator(){
+  navigator.geolocation.getCurrentPosition(position => {
+  const { latitude, longitude } = position.coords;
+  // Show a map centered at latitude / longitude.
+  console.log(latitude);
+  console.log(longitude);
+});
+}*/
 const apiKey = 'AbSo1RM9uq0KBopD4eh2LtdU6COU4Fmu';
+
+let getLocation = () => new Promise((resolve, reject) =>
+navigator.geolocation.getCurrentPosition(resolve,reject));
+
+async function test(){
+  let coordinates = await getLocation();
+  let lat = coordinates.coords.latitude;
+  let long = coordinates.coords.longitude;
+  let loc = await fetch(`https://dataservice.accuweather.com/locations/v1/cities/geoposition/search?apikey=${apiKey}&q=${lat},${long}`)
+  .then((response) => response.json())
+  .then((data) => data);
+  return loc;
+}
+
+
+//let loc = fetch('https://dataservice.accuweather.com/locations/v1/postalcodes/search?apikey=AbSo1RM9uq0KBopD4eh2LtdU6COU4Fmu&q=60453')
+//  .then((response) => response.json());
+
+
 
 function setPageColorLight() {
   //chrome.storage.local.set({"originalColor": document.body.style.backgroundColor});
@@ -93,26 +116,28 @@ function setPageColorDark() {
 }
 
 async function locator(){
-  let location = await loc;
-  let locationKey = location[0].Key;
+  let locationKey = await test();
   console.log(locationKey);
   return locationKey;
 }
 
 async function time(){
-  let locKey = await locator();
+  let location = await locator();
+  let locKey = location.Key;
   console.log(locKey);
+  console.log(location);
   const isDayTime = await fetch('https://dataservice.accuweather.com/currentconditions/v1/' + locKey + '?apikey=' + apiKey)
   .then((response) => response.json()).then((data) => {
-    console.log(data[0].IsDayTime);
     return data[0].IsDayTime;
   });
   if (isDayTime){
     setPageColorLight();
+    alert(`You're in ${location.LocalizedName}, so you're in the ${location.TimeZone.Code} time zone and it's day time! ☀️`);
   } else {
     setPageColorDark();
+    alert(`You're in ${location.LocalizedName}, so you're in the ${location.TimeZone.Code} time zone and it's night time! Enjoy the darkness 🕶`);
   }
-}
 
+}
 
 time();
