@@ -10,17 +10,17 @@
   "action": {
     "default_popup": "popup.html",
     "default_icon": {
-      "16": "images/timer-16.png",
-      "32": "images/timer-32.png",
-      "48": "images/timer-48.png",
-      "128": "images/timer-128.png"
+      "16": "images/yinyang-16.png",
+      "32": "images/yinyang-32.png",
+      "48": "images/yinyang-48.png",
+      "128": "images/yinyang-128.png"
     }
   },
   "icons": {
-    "16": "images/timer-16.png",
-    "32": "images/timer-32.png",
-    "48": "images/timer-48.png",
-    "128": "images/timer-128.png"
+    "16": "images/yinyang-16.png",
+    "32": "images/yinyang-32.png",
+    "48": "images/yinyang-48.png",
+    "128": "images/yinyang-128.png"
   }
 }
 
