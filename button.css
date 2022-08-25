@@ -12,9 +12,6 @@ button.current {
               0 0 0 4px black;
 }
 
-body, body>* {
-  outline: 1px solid red;
-}
 div {
   outline: 1px solid black;
 }

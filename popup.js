@@ -11,14 +11,53 @@ changeColor.addEventListener("click", async () => {
 
   chrome.scripting.executeScript({
     target: { tabId: tab.id },
-    function: setPageBackgroundColor,
+    function: setPageColor,
   });
 });
 
 // The body of this function will be executed as a content script inside the
 // current page
-function setPageBackgroundColor() {
+function setPageColor() {
   chrome.storage.sync.get("color", ({ color }) => {
     document.body.style.backgroundColor = color;
+    const allPs = document.querySelectorAll('p, h1, b, h3');
+    allPs.forEach(node => {
+      node.style.color = '#fff';
+    });
+    /*
+    const css = `html {
+      -webkit-filter: invert(100%);
+      -moz-filter: invert(100%);
+      -o-filter: invert(100%);
+      -ms-filter: invert(100%);
+    }`
+    const head = document.head
+    const style = document.createElement('style')
+    style.type = 'text/css';
+    if (style.styleSheet) {
+      style.styleSheet.cssText = css;
+    } else {
+      style.appendChild(document.createTextNode(css));
+    }
+    head.appendChild(style); */
+    /*
+    const allH1s = document.querySelectorAll('h1');
+    allH1s.forEach(node => {
+      node.style.color = '#fff';
+    });
+    */
+
   });
+  /*
+  chrome.storage.sync.get("textColor", ({ textColor }) =>{
+    document.querySelectorAll('p').style.color = textColor;
+  });
+  */
 }
+
+//create a function to change the text color to white
+/*function setPageTextColor(){
+  chrome.storage.sync.get("textColor", ({ textColor }) =>{
+    document.body.innerText.color = textColor;
+  })
+}*/
