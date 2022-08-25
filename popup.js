@@ -15,6 +15,10 @@ changeColor.addEventListener("click", async () => {
   });
 });
 
+function poot(){
+  console.log('spencer here');
+}
+
 // The body of this function will be executed as a content script inside the
 // current page
 function setPageColor() {
@@ -24,6 +28,7 @@ function setPageColor() {
     allPs.forEach(node => {
       node.style.color = '#fff';
     });
+
     /*
     const css = `html {
       -webkit-filter: invert(100%);
