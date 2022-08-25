@@ -7,11 +7,23 @@ button {
   border-radius: 2px;
 }
 
+#changeColor {
+  background-image: url('https://static.vecteezy.com/system/resources/previews/000/437/581/original/new-moon-vector-icon.jpg');
+  background-color: '#fff';
+  background-size: 30px;
+}
+
+#changeLight {
+  background-image: url('https://static.vecteezy.com/system/resources/previews/000/627/300/original/vector-sun-icon-symbol-sign.jpg');
+  background-size: 30px;
+}
+
+#sun {
+  background-image: url('https://static.vecteezy.com/system/resources/previews/000/440/192/original/sunset-vector-icon.jpg');
+  background-size: 30px;
+}
+
 button.current {
   box-shadow: 0 0 0 2px white,
               0 0 0 4px black;
-}
-
-div {
-  outline: 1px solid black;
 }
