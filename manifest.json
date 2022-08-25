@@ -1,12 +1,12 @@
 {
-  "name": "Timer",
-  "description": "Adds a handy timer to Chrome!",
+  "name": "Dark Mode",
+  "description": "Changes the background to a less eye-searing color!",
   "version": "1.0",
   "manifest_version": 3,
   "background": {
     "service_worker": "background.js"
   },
-  "permissions": ["storage"],
+  "permissions": ["storage", "activeTab", "scripting"],
   "action": {
     "default_popup": "popup.html",
     "default_icon": {

@@ -11,3 +11,10 @@ button.current {
   box-shadow: 0 0 0 2px white,
               0 0 0 4px black;
 }
+
+body, body>* {
+  outline: 1px solid red;
+}
+div {
+  outline: 1px solid black;
+}
